@@ -1,74 +1,5 @@
 import React, {useState} from 'react';
 
-/*
-const NumberGuess = () => {
-    // random number
-    // let randomNumber = Math.floor(Math.random()*10);
-    const isGuessCorrect = () => {
-
-        let randomNumber = Math.floor(Math.random()*10);
-        let num = prompt('enter number:');
-        let guess = false;
-        let count = 0;
-        if(num == randomNumber){
-            guess = `Correct! You took ${count} guesses`;
-            console.log(guess);
-        }
-        while(num != randomNumber){
-            // if(num === randomNumber){
-            //     guess = true;
-            // }
-            if(num > randomNumber){
-                guess = 'You are little bit high';
-                // console.log('enter a number');
-                // num = prompt('enter number');
-                console.log(guess);
-            }
-            else if(num < randomNumber){
-                guess = 'You are littel bit low';
-                console.log(guess);
-            }  
-            count++;
-            num = prompt('enter number');
-        }
-        return guess;
-    }
-    // console.log(isGuessCorrect(3));
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log(e.target.value);
-        console.log("GOOD");
-    }
-    const handleChange = (e) => {
-        console.log(e.target.value)
-    }
-
-    return (
-        <div>
-            <form>
-                <label htmlFor='num'>Number</label>
-                <input 
-                    type='text'
-                    id='num' 
-                    placeholder='Enter a number' 
-                    value={e.target.value}
-                    name='num'
-                    onChange={handleChange}
-                />
-                <button onClick="handleSubmit">Submit</button>
-            </form>
-        </div>
-    )
-}
-
-export default NumberGuess;
-
-*/
-
-
-// 
-// 
-
 
 const NumberGuess = () => {
     const [formNumber, setFormData] = useState();
@@ -77,53 +8,72 @@ const NumberGuess = () => {
     const [ans, setAns] = useState('');
     const [gameOver, setGameOver] = useState(false);
     const [round, setRound] = useState(0);
+    const [count, setCount] = useState(1);
+    let guess = '';
+
+    const num_Regex = new RegExp("^[0-9]$");
+    // const phone_regex =  new RegExp("^[1-9]\\d{2}-\\d{3}-\\d{4}$");
  
     const handleChange = (e) => {
         e.preventDefault();
         setFormData(e.target.value);
     }
 
-    let count = 0;
-
     const playGame = (e) =>{
         e.preventDefault();
         setClicked(true); 
-        count = 0;
+        setCount(1);
         setRandomNum(Math.floor(Math.random()*10));
         setFormData('');
+        setAns('');
     }
-
-    let guess = '';
-
+    console.log((num_Regex.test('1')));
     const handleSubmit = (e) =>{
         e.preventDefault();
-       
         const isGuessCorrect = (num) =>{
             if(num == randomNum){
-                guess = 'correct';
+                guess = `Correct! You took ${count} attempts`;
+                if(count === 1){
+                    guess = `Correct! ${count} attempt. Y're GENIUS!`;
+                }
+                else if(count === 2){
+                    guess = `Correct! ${count} attempts. Y're ENTHUSIASTIC!`;
+                }
+                else if(count === 3){
+                    guess = `Correct! ${count} attempts. Y're HARD WORKING!`;
+                }
+                else if(count === 4){
+                    guess = `Correct! ${count} attempts. Y're RESULT ORIENTED!`;
+                }
+                else {
+                    guess = `Correct! ${count} attempts. Great GRIT!`;
+                }
                 setGameOver(true);
-                setAns('correct!')
+                setAns(guess);
                 setRound(round + 1);
             }else if(num > randomNum){
-                setAns("It's high")
+            setAns("It's high")
             }else if(num < randomNum){
                 setAns("It's low");
             }
+            else if(!num_Regex.test(num)){
+                setAns('Takes only a positive number.');
+            }
+            setCount(count + 1);
             return guess;
         }
         isGuessCorrect(formNumber);
     }
 
     return (
-        <div className='PalindromeDiv'>
+        <div className='GameContainer'>
             {clicked ? 
                 <div> 
                     <div className='palindromeQuestions'>
                         <p className='excitement'>Guess a Number</p>
                         <div>
-                            <p>I am thinking a random number between 0 to 10. </p>
-                            <p> Find what that number is.</p>
-                            <p className='palin'> <b>HINTS</b> will take you from A to B. </p>
+                            <p>I am thinking a random positive number less than 10. </p>
+                            <p className='palin'>Follow the <b>HINTS</b> and find that number.</p>
                         </div>
                     </div>
                     <form className='form'>
@@ -136,18 +86,23 @@ const NumberGuess = () => {
                             onChange={handleChange}
                         /> 
                         <button onClick={handleSubmit}> Submit </button>
-                   
                     </form>
-                    <div className='variable'>
-                            {ans}
+                    <div className='gameVariable'>
+                        <div> 
+                            {ans ? <div className='ansDiv'>{ans} </div>: <div className='ansEmpty'>&nbsp;</div>}
+                        </div> 
+                      
+                        <div>
+                            {gameOver ? <button onClick={playGame} className='playAgainButton'>Play Again</button>
+                            : <div> &nbsp; </div> }
+                        </div>
                     </div>
                 </div> 
                 : 
-                <div>
-                    <div> <button onClick={playGame}>Guess A Number Game</button> </div>
+                <div className='guessBtnDiv'>
+                    <div> <button onClick={playGame} className='guessNumberBtn'>Guess A Number Game</button> </div>
                 </div>
             }
-            {gameOver && <div> <button onClick={playGame}>Play Again</button></div> }
         </div>
     )
 }

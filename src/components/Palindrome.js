@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
 
-/**  Is phrase a palindrome?
-Return True/False if phrase is a palindrome (same read backwards and
-forwards).
-    is_palindrome('tacocat')
-        True
-    is_palindrome('noon')
-        True
-    is_palindrome('robert')
-        False
-    Should ignore capitalization/spaces when deciding:
-        is_palindrome('tacocat')
-        True
-    is_palindrome('Noon')
-        True
+/**  
+ * Palindrome is a phrase/word that reads same backward or forward.
+ * Example, tacocat reads tacocat from both directions. Similarly noon.
 */
 const Palindrome = () => {
     const [formData, setFormData] = useState();
@@ -47,16 +36,15 @@ const Palindrome = () => {
         if(result === false){
             setPalindrome("Not a palindrome.");
         }
-      
     }
 
     return (
         <div className='PalindromeDiv'>
             <div className='palindromeQuestions'>
-                <p className='excitement'>Excited to play a game!!!</p>
+                <p className='excitement'>Find Palindrome</p>
                <div>
                 <p className='palin'> Do you know what the <b>Palindrome</b> is? </p>
-                <p className='ans'>It's a word that reads the same backward or forward.</p>
+                <p className='ans'>It's a word/phrase that reads the same backward or forward.</p>
                 <p>Submit a word and I will tell you if it's a palindrome.</p>
                </div>
             </div>
@@ -69,11 +57,10 @@ const Palindrome = () => {
                     value={formData}
                     onChange={handleChange}
                 /> 
-
                 <button onClick={handleSubmit}> Submit </button>
             </form>
-            <div className='variable'>
-                {palindrome}
+            <div className='palindromeVariable'>
+                {palindrome ? palindrome : <div> &nbsp;</div>}
             </div>
         </div>
     )
