@@ -52,7 +52,7 @@ const Palindrome = () => {
                 <label htmlFor='word'>Word </label>
                 <input id='word' 
                     type='text' 
-                    placeholder='enter a word' 
+                    placeholder='Enter a word' 
                     name='userWord' 
                     value={formData}
                     onChange={handleChange}
