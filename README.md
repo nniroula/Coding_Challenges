@@ -1,8 +1,45 @@
 ## Description
-This a small app to play some of the coding challenges as games.
-Created using ReactJS, HTML5, CSS
+This is a small web app to play some of the coding challenges as games.<br>
+Tech Stack: <b>```JavaScript, ReactJS, HTML5, CSS ```</b>
+<br>
+Online Presence: ``` heroku url ```. Click [Here](heroku url) to play them.
+<br>
+<br>
+
+## Userflow
+- Simply access the site online and play them for your refreshment.
+- For Guess a Number Game, you have to click on the button to open up the game.
+- To play the game of Palindrome, simple enter a word and submit it.
+<br>
+<br>
 
 
+## Tests
+- The tests are written using react testing library. Some tests are smoke tests(To test if the component is rendered
+correctly). Some tests are SnapShot tests(To test if the rendering actually changed).
+- If the ShapShot test fails, re-run the test.<br>
+- To run tests locally:<br>
+&nbsp; &ensp; &emsp; -  ```npm test``` OR <br>
+&nbsp; &ensp; &emsp; - ```npm run test``` <br>
+&nbsp; &ensp; &emsp; - ```npm test -- --coverage``` for code coverage <br>
+
+## To Simulate the Project
+- Clone the github repo for the project.
+- Go to your cloned directory, type ```code .``` and hit Enter to open the project in VSCode.
+
+&nbsp;&nbsp;&nbsp;&nbsp;  &ensp; &ensp; &emsp; - Simultaneously press ```Ctrl``` and ``` ` ```(back tick) keys to open up the terminal in VSCode editor. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;  &ensp; &ensp; &emsp; - Run the command ```npm init``` to install the dependencies. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;  &ensp; &ensp; &emsp; -   Then run ```npm start``` to run the project locally
+
+
+
+<br>
+<br>
+<br>
+*****************&nbsp; Section Underneath has nothing to do with this project simulation *************
+**************************************************************************************************
+<br>
+<br>
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
