@@ -41,7 +41,7 @@ const Palindrome = () => {
     return (
         <div className='PalindromeDiv'>
             <div className='palindromeQuestions'>
-                <p className='excitement'>Find Palindrome</p>
+                <p className='excitement'>Test Palindrome</p>
                <div>
                 <p className='palin'> Do you know what the <b>Palindrome</b> is? </p>
                 <p className='ans'>It's a word/phrase that reads the same backward or forward.</p>
