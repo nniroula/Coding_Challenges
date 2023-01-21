@@ -9,10 +9,8 @@ const NumberGuess = () => {
     const [gameOver, setGameOver] = useState(false);
     const [round, setRound] = useState(0);
     const [count, setCount] = useState(1);
-    let guess = '';
-
     const num_Regex = new RegExp("^[0-9]$");
-    // const phone_regex =  new RegExp("^[1-9]\\d{2}-\\d{3}-\\d{4}$");
+    let guess = '';
  
     const handleChange = (e) => {
         e.preventDefault();
@@ -27,7 +25,7 @@ const NumberGuess = () => {
         setFormData('');
         setAns('');
     }
-    console.log((num_Regex.test('1')));
+    
     const handleSubmit = (e) =>{
         e.preventDefault();
         const isGuessCorrect = (num) =>{

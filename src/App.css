@@ -1,9 +1,3 @@
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .PalindromeDiv{
     background-color: chartreuse;
     width: 40vw;
@@ -57,11 +51,9 @@
 }
 .GameContainer{
     background-color:rgb(100, 237, 109);
-    /* margin-left: 35%; */
     width: 40vw;
     height: 50vh;
     float: right;
-    /* margin-right: 10% */
     margin-right: 8.4%;
 }
 .guessNumberBtn{
@@ -96,9 +88,6 @@
 .ansEmpty{
     display: none;
 }
-/* .body{
-    background-color: aquamarine;
-} */
 .HomePage{
     background-color: cyan;
     height: 100vh;
