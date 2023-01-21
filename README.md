@@ -2,7 +2,7 @@
 This is a small web app to play some of the coding challenges as games.<br>
 Tech Stack: <b>```JavaScript, ReactJS, HTML5, CSS ```</b>
 <br>
-Online Presence: ``` heroku url ```. Click [Here](heroku url) to play them.
+Online Presence: Click <b>[Here](https://code-challenges.herokuapp.com/)</b> to play them.
 <br>
 <br>
 
